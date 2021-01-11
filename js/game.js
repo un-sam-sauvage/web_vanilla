@@ -10,6 +10,7 @@ let directionVertical = true
 canvas.width = document.documentElement.clientWidth || document.body.clientWidth;
 canvas.height = document.documentElement.clientHeight || document.body.clientHeight;
 var ongoingTouches = [];
+var rectToCreate = [];
 
 var img = new Image()
 img.src = "img/DVD_logo.png"
