@@ -63,7 +63,7 @@ function gameLoop() {
 
   rectToMove.forEach(element => {
     if (element.x > canvas.width - 100 || element.x < 0) {
-      element.color = colors[Math.floor(Math.random() * colors.length)]
+      element.color = 'rgba('+ Math.floor(Math.random()*255 )+','+Math.floor(Math.random()*255 )+','+Math.floor(Math.random()*255 )+')'
       element.directionHorizontal = !element.directionHorizontal
     } else if (element.y > canvas.height - 100 || element.y < 0) {
       element.color = colors[Math.floor(Math.random() * colors.length)]
