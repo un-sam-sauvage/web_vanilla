@@ -9,7 +9,6 @@ canvas.width = document.documentElement.clientWidth || document.body.clientWidth
 canvas.height = document.documentElement.clientHeight || document.body.clientHeight;
 var ongoingTouches = [];
 var rectToMove = []
-var colors = ["red" , "purple" , "blue" , "orange" , "green" , " black"]
 
 function rect_create(x, y, w, h, color, dx, dy) {
   let obj = {
@@ -21,7 +20,7 @@ function rect_create(x, y, w, h, color, dx, dy) {
     dx: dx,
     dy: dy,
     directionHorizontal: true,
-    directionVertical: true
+    directionVertical: true,
   }
   rectToMove.push(obj)
 }
@@ -40,7 +39,11 @@ function gameLoop() {
     rectToMove.forEach(element => {
       ctx.fillStyle = element.color;
       ctx.fillRect(element.x, element.y, element.w, element.w);
-      //ctx.drawImage(img,element.x,element.y,element.w,element.h)
+
+      //ctx.globalCompositeOperation = "destination-in";
+      //ctx.drawImage(img,element.x,element.y,element.w,element.h);
+      ///ctx.globalCompositeOperation = "source-over";
+      
     });
   }
 
@@ -66,7 +69,7 @@ function gameLoop() {
       element.color = 'rgba('+ Math.floor(Math.random()*255 )+','+Math.floor(Math.random()*255 )+','+Math.floor(Math.random()*255 )+')'
       element.directionHorizontal = !element.directionHorizontal
     } else if (element.y > canvas.height - 100 || element.y < 0) {
-      element.color = colors[Math.floor(Math.random() * colors.length)]
+      element.color = 'rgba('+ Math.floor(Math.random()*255 )+','+Math.floor(Math.random()*255 )+','+Math.floor(Math.random()*255 )+')'
       element.directionVertical = !element.directionVertical
     }
   });
